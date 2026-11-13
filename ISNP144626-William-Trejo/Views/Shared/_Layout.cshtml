@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Nexus Gaming</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ISNP144626_William_Trejo.styles.css" asp-append-version="true" />
+
+    <!-- ESTILOS AVANZADOS PARA DISEÑO GAMING -->
+    <style>
+            /* Fondo de pantalla épico con oscurecimiento para lectura */
+            body {
+                background-image: linear-gradient(rgba(10, 10, 15, 0.8), rgba(10, 10, 15, 0.95)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                color: #ffffff;
+            }
+
+            /* Efecto cristal (Glassmorphism) para el menú y el pie de página */
+            .navbar, .footer {
+                background-color: rgba(0, 0, 0, 0.5) !important;
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border-color: rgba(255, 255, 255, 0.05) !important;
+            }
+
+            /* Efecto cristal para las tarjetas de las consolas */
+            .bg-black {
+                background-color: rgba(0, 0, 0, 0.4) !important;
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            /* Animación suave al pasar el mouse sobre las tarjetas */
+            .bg-black:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8) !important;
+            }
+
+            /* Brillo suave para los botones */
+            .btn-outline-light:hover {
+                box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-uppercase" asp-area="" asp-controller="Home" asp-action="Index">🎮 Nexus Gaming</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Catalogo" asp-action="Index">Catálogo de Videojuegos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container text-center py-3 text-light">
+            &copy; 2026 - Nexus Gaming
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

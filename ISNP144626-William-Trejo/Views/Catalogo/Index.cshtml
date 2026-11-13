@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ISNP144626_William_Trejo.Models.Videojuego>
+
+@{
+    ViewData["Title"] = "Catálogo";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-5 text-white fw-bold">Directorio Completo de Videojuegos</h2>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-warning text-center bg-dark border-warning text-warning">
+            No hay videojuegos registrados en el catálogo.
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var juego in Model)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4 d-flex align-items-stretch">
+                    <div class="card w-100 shadow border-secondary bg-black text-white">
+
+                        <!-- Muestra la imagen local solo si la propiedad ImagenUrl tiene contenido -->
+                        @if (!string.IsNullOrEmpty(juego.ImagenUrl))
+                        {
+                            <img src="@Url.Content(juego.ImagenUrl)" class="card-img-top border-bottom border-secondary" alt="Portada de @juego.Titulo" style="height: 280px; object-fit: cover;" />
+                        }
+
+                        <div class="card-body d-flex flex-column">
+                            <h6 class="card-title fw-bold text-white mb-2">@juego.Titulo</h6>
+                            <p class="card-text text-secondary small flex-grow-1">@juego.Descripcion</p>
+
+                            <div class="mt-2">
+                                <!-- Insignias de colores para cada consola -->
+                                @if (juego.Categoria == "PlayStation 5")
+                                {
+                                    <span class="badge bg-primary w-100 py-2">@juego.Categoria</span>
+                                }
+                                else if (juego.Categoria == "PlayStation 4")
+                                {
+                                    <span class="badge bg-info w-100 py-2 text-dark">@juego.Categoria</span>
+                                }
+                                else if (juego.Categoria == "Nintendo Switch")
+                                {
+                                    <span class="badge bg-danger w-100 py-2">@juego.Categoria</span>
+                                }
+                                else if (juego.Categoria == "Nintendo Switch 2")
+                                {
+                                    <span class="badge w-100 py-2" style="background-color: #8b0000; color: white;">@juego.Categoria</span>
+                                }
+                                else if (juego.Categoria == "Xbox 360")
+                                {
+                                    <span class="badge bg-success w-100 py-2">@juego.Categoria</span>
+                                }
+                                else if (juego.Categoria == "Xbox Clásica")
+                                {
+                                    <span class="badge w-100 py-2" style="background-color: #0b500b; color: white;">@juego.Categoria</span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

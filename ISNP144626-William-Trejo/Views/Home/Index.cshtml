@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="text-center mt-5">
+    <h1 class="display-4 fw-bold text-white">Nexus Gaming</h1>
+    <p class="lead mt-3 text-light">
+        El directorio definitivo y profesional de videojuegos para tus consolas favoritas.
+    </p>
+
+    <div class="mt-5">
+        <a asp-controller="Catalogo" asp-action="Index" class="btn btn-outline-light btn-lg px-5 py-3 shadow-sm rounded-pill fw-bold">
+            🔥 Ver Todos los Juegos (Mezclados)
+        </a>
+    </div>
+
+    <hr class="my-5 border-secondary" />
+
+    <div class="row text-center mt-4">
+        <!-- Tarjeta PlayStation (Filtra PS4 y PS5) -->
+        <div class="col-md-4 mb-3">
+            <div class="p-4 border border-primary bg-black rounded shadow h-100 d-flex flex-column justify-content-between">
+                <div>
+                    <h4 class="text-primary fw-bold">PlayStation</h4>
+                    <p class="text-light small mt-3">Exclusivos y grandes títulos de las generaciones de <strong>PlayStation 4</strong> y <strong>PlayStation 5</strong>.</p>
+                </div>
+                <div class="mt-4">
+                    <a href="/Catalogo?categoria=PlayStation" class="btn btn-primary w-100 fw-bold">🎮 Ver PlayStation</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta Xbox (Filtra Xbox 360 y Clásica) -->
+        <div class="col-md-4 mb-3">
+            <div class="p-4 border border-success bg-black rounded shadow h-100 d-flex flex-column justify-content-between">
+                <div>
+                    <h4 class="text-success fw-bold">Xbox</h4>
+                    <p class="text-light small mt-3">Todo el ecosistema clásico de Microsoft: <strong>Xbox Clásica</strong> y <strong>Xbox 360</strong>.</p>
+                </div>
+                <div class="mt-4">
+                    <a href="/Catalogo?categoria=Xbox" class="btn btn-success w-100 fw-bold">🟢 Ver Xbox</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta Nintendo Switch (Filtra Switch y Switch 2) -->
+        <div class="col-md-4 mb-3">
+            <div class="p-4 border border-danger bg-black rounded shadow h-100 d-flex flex-column justify-content-between">
+                <div>
+                    <h4 class="text-danger fw-bold">Nintendo Switch</h4>
+                    <p class="text-light small mt-3">La experiencia portátil definitiva con títulos de <strong>Nintendo Switch</strong> y la nueva <strong>Switch 2</strong>.</p>
+                </div>
+                <div class="mt-4">
+                    <a href="/Catalogo?categoria=Nintendo" class="btn btn-danger w-100 fw-bold">🔴 Ver Nintendo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
